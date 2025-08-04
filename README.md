@@ -44,10 +44,23 @@ travelexplore-website/
 ├── login.html              # Login/Signup page
 ├── dashboard.html          # User dashboard
 ├── css/
-│   └── styles.css          # Main stylesheet
+│   ├── styles.css          # Main stylesheet
+│   └── aos.css             # AOS animation library
 ├── js/
-│   └── script.js           # Main JavaScript file
-├── images/                 # Image assets (if any)
+│   ├── script.js           # Main JavaScript file
+│   └── aos.js              # AOS animation library
+├── images/                 # SVG image assets
+│   ├── goa.svg             # Goa destination image
+│   ├── kerala.svg          # Kerala destination image
+│   ├── ladakh.svg          # Ladakh destination image
+│   ├── manali.svg          # Manali destination image
+│   ├── profile-placeholder.svg # Profile placeholder
+│   └── travel-placeholder.svg  # Generic travel image
+├── screenshots/            # Application screenshots
+│   ├── about-page.png      # About page screenshot
+│   ├── packages-page.png   # Packages page screenshot
+│   ├── contact-page.png    # Contact page screenshot
+│   └── dashboard-page.png  # Dashboard page screenshot
 ├── data/                   # JSON data storage
 │   ├── bookings.json       # Booking records
 │   ├── contacts.json       # Contact form submissions
@@ -117,6 +130,24 @@ If you want to run just the frontend without the backend:
 **Login Details:**
 - Email: `demo@user.com`
 - Password: `123456`
+
+## 📸 Application Screenshots
+
+### About Page
+![About Page](screenshots/about-page.png)
+*Professional about page showcasing TravelExplore's mission and services with elegant design and travel-themed imagery.*
+
+### Tour Packages
+![Packages Page](screenshots/packages-page.png)
+*Interactive packages page featuring advanced filtering options, package cards with ratings, and detailed information about Manali and Goa tour packages.*
+
+### Contact Us
+![Contact Page](screenshots/contact-page.png)
+*Comprehensive contact page with detailed form, office location map, and multiple quick contact options including WhatsApp and callback requests.*
+
+### User Dashboard
+![Dashboard Page](screenshots/dashboard-page.png)
+*Personalized user dashboard displaying trip statistics, booking management, and quick action buttons for enhanced user experience.*
 
 ## 📱 Pages Overview
 
