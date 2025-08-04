@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - TravelExplore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-plane"></i> TravelExplore</h2>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="destinations.html" class="nav-link active">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="packages.html" class="nav-link">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link login-btn">Login</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-bg" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
+            <div class="page-header-overlay"></div>
+            <div class="container">
+                <div class="page-header-content" data-aos="fade-up">
+                    <h1>Explore Destinations</h1>
+                    <p>Discover amazing places around India and create unforgettable memories</p>
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <span>Destinations</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Filter -->
+    <section class="destinations-filter">
+        <div class="container">
+            <div class="filter-tabs" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Destinations</button>
+                <button class="filter-btn" data-filter="mountains">Mountains</button>
+                <button class="filter-btn" data-filter="beaches">Beaches</button>
+                <button class="filter-btn" data-filter="cultural">Cultural</button>
+                <button class="filter-btn" data-filter="adventure">Adventure</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Grid -->
+    <section class="destinations-showcase">
+        <div class="container">
+            <div class="destinations-grid">
+                <!-- Manali -->
+                <div class="destination-detail-card" data-category="mountains adventure" data-aos="fade-up" data-aos-delay="100" id="manali">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Manali">
+                        <div class="destination-badge">Popular</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Manali, Himachal Pradesh</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">Nestled in the Kullu Valley, Manali is a high-altitude Himalayan resort town famous for its cool climate, snow-capped mountains, and adventure activities. From paragliding to river rafting, Manali offers the perfect blend of natural beauty and thrilling experiences.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Rohtang Pass & Solang Valley</li>
+                                <li><i class="fas fa-check"></i> Adventure Sports</li>
+                                <li><i class="fas fa-check"></i> Hadimba Temple</li>
+                                <li><i class="fas fa-check"></i> Mall Road Shopping</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>10°C - 25°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: Apr-Jun, Oct-Feb</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3-5 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=manali" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=manali" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goa -->
+                <div class="destination-detail-card" data-category="beaches cultural" data-aos="fade-up" data-aos-delay="200" id="goa">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Goa">
+                        <div class="destination-badge">Trending</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Goa</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">India's beach paradise, Goa is famous for its pristine beaches, Portuguese colonial architecture, vibrant nightlife, and delicious seafood. Whether you're looking for relaxation or adventure, Goa has something for everyone.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Beautiful Beaches</li>
+                                <li><i class="fas fa-check"></i> Water Sports</li>
+                                <li><i class="fas fa-check"></i> Portuguese Architecture</li>
+                                <li><i class="fas fa-check"></i> Vibrant Nightlife</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>20°C - 32°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: Nov-Mar</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>4-7 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=goa" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=goa" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leh-Ladakh -->
+                <div class="destination-detail-card" data-category="mountains adventure" data-aos="fade-up" data-aos-delay="300" id="ladakh">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Leh-Ladakh">
+                        <div class="destination-badge">Adventure</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Leh-Ladakh, Jammu & Kashmir</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">Known as the "Land of High Passes," Ladakh offers breathtaking landscapes, ancient monasteries, and unique culture. This high-altitude desert is perfect for adventure enthusiasts and spiritual seekers alike.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Pangong Tso Lake</li>
+                                <li><i class="fas fa-check"></i> Nubra Valley</li>
+                                <li><i class="fas fa-check"></i> Buddhist Monasteries</li>
+                                <li><i class="fas fa-check"></i> Khardung La Pass</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>-10°C - 20°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: May-Sep</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>6-8 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=ladakh" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=ladakh" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kerala -->
+                <div class="destination-detail-card" data-category="cultural beaches" data-aos="fade-up" data-aos-delay="400" id="kerala">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kerala">
+                        <div class="destination-badge">Serene</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Kerala - God's Own Country</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">Kerala, known as "God's Own Country," is famous for its serene backwaters, lush green landscapes, spice plantations, and Ayurvedic treatments. Experience the unique culture and natural beauty of South India.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Backwater Cruises</li>
+                                <li><i class="fas fa-check"></i> Spice Plantations</li>
+                                <li><i class="fas fa-check"></i> Ayurvedic Treatments</li>
+                                <li><i class="fas fa-check"></i> Hill Stations</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>23°C - 32°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: Oct-Mar</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5-7 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=kerala" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=kerala" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Andaman -->
+                <div class="destination-detail-card" data-category="beaches adventure" data-aos="fade-up" data-aos-delay="500" id="andaman">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Andaman">
+                        <div class="destination-badge">Exotic</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Andaman & Nicobar Islands</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.6)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">The Andaman Islands offer pristine beaches, crystal-clear waters, and rich marine life. Perfect for water sports, scuba diving, and experiencing untouched natural beauty in the Bay of Bengal.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Radhanagar Beach</li>
+                                <li><i class="fas fa-check"></i> Scuba Diving</li>
+                                <li><i class="fas fa-check"></i> Cellular Jail</li>
+                                <li><i class="fas fa-check"></i> Water Sports</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>24°C - 30°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: Oct-May</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5-6 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=andaman" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=andaman" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shimla -->
+                <div class="destination-detail-card" data-category="mountains cultural" data-aos="fade-up" data-aos-delay="600" id="shimla">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Shimla">
+                        <div class="destination-badge">Heritage</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Shimla, Himachal Pradesh</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.5)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">The former summer capital of British India, Shimla is known for its colonial architecture, toy train, and pleasant climate. Walk through the Mall Road and experience the charm of this hill station.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Toy Train Ride</li>
+                                <li><i class="fas fa-check"></i> Mall Road</li>
+                                <li><i class="fas fa-check"></i> Jakhu Temple</li>
+                                <li><i class="fas fa-check"></i> Colonial Architecture</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>15°C - 28°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: Mar-Jun, Sep-Nov</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3-4 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=shimla" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=shimla" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jaipur -->
+                <div class="destination-detail-card" data-category="cultural" data-aos="fade-up" data-aos-delay="700" id="jaipur">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1599661046827-dacde6976549?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jaipur">
+                        <div class="destination-badge">Royal</div>
+                    </div>
+                    <div class="destination-content">
+                        <div class="destination-header">
+                            <h3>Jaipur, Rajasthan</h3>
+                            <div class="destination-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                        <p class="destination-description">The Pink City of India, Jaipur is famous for its magnificent palaces, forts, and vibrant culture. Experience royal heritage, traditional crafts, and authentic Rajasthani cuisine in this UNESCO World Heritage city.</p>
+                        <div class="destination-highlights">
+                            <h4>Highlights:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Amber Fort</li>
+                                <li><i class="fas fa-check"></i> City Palace</li>
+                                <li><i class="fas fa-check"></i> Hawa Mahal</li>
+                                <li><i class="fas fa-check"></i> Local Markets</li>
+                            </ul>
+                        </div>
+                        <div class="destination-info">
+                            <div class="info-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>20°C - 35°C</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Best: Oct-Mar</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>3-4 Days</span>
+                            </div>
+                        </div>
+                        <div class="destination-actions">
+                            <a href="packages.html?destination=jaipur" class="btn btn-primary">View Packages</a>
+                            <a href="booking.html?destination=jaipur" class="btn btn-outline">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Ready to Explore?</h2>
+                <p>Choose your perfect destination and let us create an unforgettable journey for you.</p>
+                <div class="cta-buttons">
+                    <a href="packages.html" class="btn btn-primary">View All Packages</a>
+                    <a href="contact.html" class="btn btn-outline">Plan Custom Trip</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-plane"></i> TravelExplore</h3>
+                    <p>Your trusted partner for unforgettable travel experiences. Discover the world with our expertly crafted tour packages.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Destinations</h4>
+                    <ul>
+                        <li><a href="#manali">Manali</a></li>
+                        <li><a href="#goa">Goa</a></li>
+                        <li><a href="#kerala">Kerala</a></li>
+                        <li><a href="#ladakh">Leh-Ladakh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Mumbai, India</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@travelexplore.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelExplore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
+    <style>
+        .destinations-filter {
+            padding: 2rem 0;
+            background: #f8f9fa;
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #666;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #2c5aa0;
+            color: white;
+            border-color: #2c5aa0;
+        }
+
+        .destinations-showcase {
+            padding: 5rem 0;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .destination-detail-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .destination-detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .destination-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .destination-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-detail-card:hover .destination-image img {
+            transform: scale(1.05);
+        }
+
+        .destination-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .destination-content {
+            padding: 2rem;
+        }
+
+        .destination-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .destination-header h3 {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .destination-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .destination-rating span {
+            color: #666;
+            margin-left: 0.5rem;
+        }
+
+        .destination-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .destination-highlights {
+            margin-bottom: 1.5rem;
+        }
+
+        .destination-highlights h4 {
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .destination-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .destination-highlights li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .destination-highlights li i {
+            color: #2c5aa0;
+            font-size: 0.8rem;
+        }
+
+        .destination-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .info-item i {
+            color: #2c5aa0;
+            width: 16px;
+        }
+
+        .destination-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .destination-actions .btn {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2c5aa0;
+            border: 2px solid #2c5aa0;
+        }
+
+        .btn-outline:hover {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-buttons .btn-outline:hover {
+            background: white;
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .destination-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .destination-actions {
+                flex-direction: column;
+            }
+
+            .destination-actions .btn {
+                flex: none;
+            }
+
+            .filter-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .destination-content {
+                padding: 1.5rem;
+            }
+
+            .destination-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const destinationCards = document.querySelectorAll('.destination-detail-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter destinations
+                    destinationCards.forEach(card => {
+                        const categories = card.dataset.category;
+                        
+                        if (filter === 'all' || categories.includes(filter)) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeInUp 0.6s ease forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

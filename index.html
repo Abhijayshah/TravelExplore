@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelExplore - Discover Amazing Destinations</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-plane"></i> TravelExplore</h2>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="destinations.html" class="nav-link">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="packages.html" class="nav-link">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link login-btn">Login</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('images/manali.svg')">
+                <div class="slide-content">
+                    <h1 data-aos="fade-up">Discover Amazing Places</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Explore the world's most beautiful destinations with our expertly crafted tour packages</p>
+                    <a href="packages.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Explore Tours</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/ladakh.svg')">
+                <div class="slide-content">
+                    <h1 data-aos="fade-up">Adventure Awaits</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">From mountains to beaches, create memories that last a lifetime</p>
+                    <a href="packages.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Book Now</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/travel-placeholder.svg')">
+                <div class="slide-content">
+                    <h1 data-aos="fade-up">Cultural Experiences</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Immerse yourself in rich cultures and traditions around the world</p>
+                    <a href="destinations.html" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-controls">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box" data-aos="fade-up">
+                <h3>Find Your Perfect Trip</h3>
+                <div class="search-form">
+                    <div class="search-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Where do you want to go?" id="destination-search">
+                    </div>
+                    <div class="search-field">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="departure-date">
+                    </div>
+                    <div class="search-field">
+                        <i class="fas fa-users"></i>
+                        <select id="travelers">
+                            <option value="1">1 Traveler</option>
+                            <option value="2">2 Travelers</option>
+                            <option value="3">3 Travelers</option>
+                            <option value="4">4+ Travelers</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary search-btn">Search Tours</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Popular Destinations</h2>
+                <p>Discover the most sought-after travel destinations</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-image">
+                        <img src="images/manali.svg" alt="Manali">
+                        <div class="card-overlay">
+                            <h3>Manali</h3>
+                            <p>Hill Station Paradise</p>
+                            <a href="destinations.html#manali" class="btn btn-outline">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-image">
+                        <img src="images/goa.svg" alt="Goa">
+                        <div class="card-overlay">
+                            <h3>Goa</h3>
+                            <p>Beach & Nightlife</p>
+                            <a href="destinations.html#goa" class="btn btn-outline">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-image">
+                        <img src="images/ladakh.svg" alt="Leh-Ladakh">
+                        <div class="card-overlay">
+                            <h3>Leh-Ladakh</h3>
+                            <p>Adventure & Serenity</p>
+                            <a href="destinations.html#ladakh" class="btn btn-outline">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="destination-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-image">
+                        <img src="images/kerala.svg" alt="Kerala">
+                        <div class="card-overlay">
+                            <h3>Kerala</h3>
+                            <p>God's Own Country</p>
+                            <a href="destinations.html#kerala" class="btn btn-outline">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Packages -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Featured Tour Packages</h2>
+                <p>Handpicked tours for unforgettable experiences</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="package-image">
+                        <img src="images/manali.svg" alt="Manali Package">
+                        <div class="package-badge">Best Seller</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Manali Adventure Package</h3>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fas fa-users"></i> 2-6 People</span>
+                        </div>
+                        <p>Experience the beauty of Manali with adventure activities, scenic views, and comfortable accommodation.</p>
+                        <div class="package-price">
+                            <span class="price">₹15,999</span>
+                            <span class="original-price">₹19,999</span>
+                        </div>
+                        <a href="booking.html?package=manali" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="package-image">
+                        <img src="images/goa.svg" alt="Goa Package">
+                        <div class="package-badge">Popular</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Goa Beach Paradise</h3>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 4 Days / 3 Nights</span>
+                            <span><i class="fas fa-users"></i> 2-8 People</span>
+                        </div>
+                        <p>Relax on pristine beaches, enjoy water sports, and experience Goa's vibrant nightlife and culture.</p>
+                        <div class="package-price">
+                            <span class="price">₹12,999</span>
+                            <span class="original-price">₹16,999</span>
+                        </div>
+                        <a href="booking.html?package=goa" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+                <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="package-image">
+                        <img src="images/kerala.svg" alt="Kerala Package">
+                        <div class="package-badge">New</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Kerala Backwaters</h3>
+                        <div class="package-details">
+                            <span><i class="fas fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fas fa-users"></i> 2-4 People</span>
+                        </div>
+                        <p>Cruise through serene backwaters, explore spice plantations, and enjoy traditional Kerala cuisine.</p>
+                        <div class="package-price">
+                            <span class="price">₹18,999</span>
+                            <span class="original-price">₹23,999</span>
+                        </div>
+                        <a href="booking.html?package=kerala" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>What Our Travelers Say</h2>
+                <p>Real experiences from real travelers</p>
+            </div>
+            <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Amazing experience! The Manali package was perfectly organized. Beautiful locations, comfortable stay, and excellent service throughout the trip."</p>
+                        <div class="testimonial-author">
+                            <img src="images/profile-placeholder.svg" alt="Priya Sharma">
+                            <div class="author-info">
+                                <h4>Priya Sharma</h4>
+                                <span>Mumbai</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Goa trip was fantastic! Great beaches, amazing food, and the team took care of everything. Highly recommend TravelExplore for hassle-free vacations."</p>
+                        <div class="testimonial-author">
+                            <img src="images/profile-placeholder.svg" alt="Rahul Gupta">
+                            <div class="author-info">
+                                <h4>Rahul Gupta</h4>
+                                <span>Delhi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Kerala backwaters tour exceeded our expectations. The houseboat experience was magical and the local guides were very knowledgeable."</p>
+                        <div class="testimonial-author">
+                            <img src="images/profile-placeholder.svg" alt="Anjali Patel">
+                            <div class="author-info">
+                                <h4>Anjali Patel</h4>
+                                <span>Bangalore</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest travel deals and destination guides</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-plane"></i> TravelExplore</h3>
+                    <p>Your trusted partner for unforgettable travel experiences. Discover the world with our expertly crafted tour packages.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Popular Destinations</h4>
+                    <ul>
+                        <li><a href="destinations.html#manali">Manali</a></li>
+                        <li><a href="destinations.html#goa">Goa</a></li>
+                        <li><a href="destinations.html#kerala">Kerala</a></li>
+                        <li><a href="destinations.html#ladakh">Leh-Ladakh</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Mumbai, India</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@travelexplore.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelExplore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+

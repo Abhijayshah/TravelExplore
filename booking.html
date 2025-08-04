@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Tour - TravelExplore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-plane"></i> TravelExplore</h2>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="destinations.html" class="nav-link">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="packages.html" class="nav-link">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link login-btn">Login</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-bg" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')">
+            <div class="page-header-overlay"></div>
+            <div class="container">
+                <div class="page-header-content" data-aos="fade-up">
+                    <h1>Book Your Dream Tour</h1>
+                    <p>Complete your booking in just a few simple steps</p>
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <a href="packages.html">Packages</a>
+                        <span>/</span>
+                        <span>Booking</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Progress -->
+    <section class="booking-progress">
+        <div class="container">
+            <div class="progress-steps" data-aos="fade-up">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Package Selection</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Personal Details</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Travel Details</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Payment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-wrapper">
+                <!-- Booking Form -->
+                <div class="booking-form-container" data-aos="fade-right">
+                    <form class="booking-form" id="booking-form">
+                        <!-- Step 1: Package Selection -->
+                        <div class="form-step active" id="step-1">
+                            <h3>Select Your Package</h3>
+                            <div class="package-selection">
+                                <div class="selected-package" id="selected-package">
+                                    <!-- Package details will be loaded here -->
+                                </div>
+                                <div class="package-options">
+                                    <label>Choose Package:</label>
+                                    <select id="package-select" name="package" required>
+                                        <option value="">Select a package</option>
+                                        <option value="manali-adventure">Manali Adventure Escape - ₹28,000</option>
+                                        <option value="goa-beach">Goa Beach Paradise - ₹22,000</option>
+                                        <option value="ladakh-expedition">Ladakh High Altitude Expedition - ₹65,000</option>
+                                        <option value="kerala-backwaters">Kerala Backwater Romance - ₹45,000</option>
+                                        <option value="andaman-explorer">Andaman Island Explorer - ₹55,000</option>
+                                        <option value="shimla-heritage">Shimla Heritage Walk - ₹15,000</option>
+                                        <option value="jaipur-royal">Jaipur Royal Heritage - ₹25,000</option>
+                                        <option value="golden-triangle">Golden Triangle Group Tour - ₹34,000</option>
+                                    </select>
+                                </div>
+                                <div class="travelers-count">
+                                    <div class="count-group">
+                                        <label>Adults (12+ years):</label>
+                                        <div class="count-controls">
+                                            <button type="button" class="count-btn" data-action="decrease" data-target="adults">-</button>
+                                            <input type="number" id="adults" name="adults" value="2" min="1" max="10" readonly>
+                                            <button type="button" class="count-btn" data-action="increase" data-target="adults">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="count-group">
+                                        <label>Children (2-12 years):</label>
+                                        <div class="count-controls">
+                                            <button type="button" class="count-btn" data-action="decrease" data-target="children">-</button>
+                                            <input type="number" id="children" name="children" value="0" min="0" max="5" readonly>
+                                            <button type="button" class="count-btn" data-action="increase" data-target="children">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="count-group">
+                                        <label>Infants (0-2 years):</label>
+                                        <div class="count-controls">
+                                            <button type="button" class="count-btn" data-action="decrease" data-target="infants">-</button>
+                                            <input type="number" id="infants" name="infants" value="0" min="0" max="3" readonly>
+                                            <button type="button" class="count-btn" data-action="increase" data-target="infants">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-primary next-step" data-next="2">Next Step</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Personal Details -->
+                        <div class="form-step" id="step-2">
+                            <h3>Personal Details</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="first-name">First Name *</label>
+                                    <input type="text" id="first-name" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name *</label>
+                                    <input type="text" id="last-name" name="lastName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age *</label>
+                                    <input type="number" id="age" name="age" min="18" max="100" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="address">Address *</label>
+                                    <textarea id="address" name="address" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State *</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pincode">PIN Code *</label>
+                                    <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="id-type">ID Proof Type *</label>
+                                    <select id="id-type" name="idType" required>
+                                        <option value="">Select ID Type</option>
+                                        <option value="aadhar">Aadhar Card</option>
+                                        <option value="passport">Passport</option>
+                                        <option value="driving-license">Driving License</option>
+                                        <option value="voter-id">Voter ID</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="id-number">ID Number *</label>
+                                    <input type="text" id="id-number" name="idNumber" required>
+                                </div>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="1">Previous</button>
+                                <button type="button" class="btn btn-primary next-step" data-next="3">Next Step</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Travel Details -->
+                        <div class="form-step" id="step-3">
+                            <h3>Travel Details</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="travel-date">Preferred Travel Date *</label>
+                                    <input type="date" id="travel-date" name="travelDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pickup-location">Pickup Location</label>
+                                    <input type="text" id="pickup-location" name="pickupLocation" placeholder="Enter pickup address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="accommodation">Accommodation Preference</label>
+                                    <select id="accommodation" name="accommodation">
+                                        <option value="standard">Standard (3-Star)</option>
+                                        <option value="deluxe">Deluxe (4-Star)</option>
+                                        <option value="luxury">Luxury (5-Star)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meal-preference">Meal Preference</label>
+                                    <select id="meal-preference" name="mealPreference">
+                                        <option value="vegetarian">Vegetarian</option>
+                                        <option value="non-vegetarian">Non-Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                        <option value="jain">Jain</option>
+                                    </select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="special-requests">Special Requests</label>
+                                    <textarea id="special-requests" name="specialRequests" rows="3" placeholder="Any special requirements, medical conditions, or requests..."></textarea>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="emergency-contact">Emergency Contact</label>
+                                    <input type="text" id="emergency-contact" name="emergencyContact" placeholder="Name and phone number">
+                                </div>
+                            </div>
+                            <div class="additional-services">
+                                <h4>Additional Services</h4>
+                                <div class="services-grid">
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="travel-insurance">
+                                        <span class="checkmark"></span>
+                                        Travel Insurance (+₹500)
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="airport-transfer">
+                                        <span class="checkmark"></span>
+                                        Airport Transfer (+₹1,000)
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="tour-guide">
+                                        <span class="checkmark"></span>
+                                        Personal Tour Guide (+₹2,000)
+                                    </label>
+                                    <label class="service-option">
+                                        <input type="checkbox" name="services" value="photography">
+                                        <span class="checkmark"></span>
+                                        Professional Photography (+₹3,000)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="2">Previous</button>
+                                <button type="button" class="btn btn-primary next-step" data-next="4">Next Step</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Payment -->
+                        <div class="form-step" id="step-4">
+                            <h3>Payment Details</h3>
+                            <div class="payment-methods">
+                                <h4>Select Payment Method</h4>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="full-payment" checked>
+                                        <span class="radio-mark"></span>
+                                        <div class="payment-info">
+                                            <strong>Full Payment</strong>
+                                            <span>Pay complete amount now</span>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="paymentMethod" value="partial-payment">
+                                        <span class="radio-mark"></span>
+                                        <div class="payment-info">
+                                            <strong>Partial Payment (30%)</strong>
+                                            <span>Pay remaining amount later</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="payment-gateway">
+                                <h4>Payment Gateway</h4>
+                                <div class="gateway-options">
+                                    <label class="gateway-option">
+                                        <input type="radio" name="gateway" value="credit-card" checked>
+                                        <span class="radio-mark"></span>
+                                        <i class="fas fa-credit-card"></i>
+                                        Credit/Debit Card
+                                    </label>
+                                    <label class="gateway-option">
+                                        <input type="radio" name="gateway" value="upi">
+                                        <span class="radio-mark"></span>
+                                        <i class="fas fa-mobile-alt"></i>
+                                        UPI Payment
+                                    </label>
+                                    <label class="gateway-option">
+                                        <input type="radio" name="gateway" value="net-banking">
+                                        <span class="radio-mark"></span>
+                                        <i class="fas fa-university"></i>
+                                        Net Banking
+                                    </label>
+                                    <label class="gateway-option">
+                                        <input type="radio" name="gateway" value="wallet">
+                                        <span class="radio-mark"></span>
+                                        <i class="fas fa-wallet"></i>
+                                        Digital Wallet
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="terms-conditions">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" target="_blank">Terms & Conditions</a> and <a href="#" target="_blank">Privacy Policy</a>
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for travel updates and offers
+                                </label>
+                            </div>
+                            <div class="form-navigation">
+                                <button type="button" class="btn btn-outline prev-step" data-prev="3">Previous</button>
+                                <button type="submit" class="btn btn-primary submit-booking">
+                                    <i class="fas fa-lock"></i> Secure Payment
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Booking Summary -->
+                <div class="booking-summary" data-aos="fade-left">
+                    <div class="summary-card">
+                        <h3>Booking Summary</h3>
+                        <div class="summary-content" id="booking-summary">
+                            <div class="summary-item">
+                                <span>Package:</span>
+                                <span id="summary-package">Select a package</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Travelers:</span>
+                                <span id="summary-travelers">2 Adults</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Travel Date:</span>
+                                <span id="summary-date">Not selected</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-item">
+                                <span>Package Cost:</span>
+                                <span id="summary-cost">₹0</span>
+                            </div>
+                            <div class="summary-item" id="services-cost" style="display: none;">
+                                <span>Additional Services:</span>
+                                <span id="summary-services">₹0</span>
+                            </div>
+                            <div class="summary-item" id="tax-item">
+                                <span>Taxes & Fees:</span>
+                                <span id="summary-tax">₹0</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-total">
+                                <span>Total Amount:</span>
+                                <span id="summary-total">₹0</span>
+                            </div>
+                            <div class="payment-amount" id="payment-amount">
+                                <span>Amount to Pay:</span>
+                                <span id="amount-to-pay">₹0</span>
+                            </div>
+                        </div>
+                        <div class="summary-features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-undo"></i>
+                                <span>Free Cancellation</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-headset"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Help Section -->
+                    <div class="help-section">
+                        <h4>Need Help?</h4>
+                        <div class="help-options">
+                            <a href="tel:+919876543210" class="help-option">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Call Us</strong>
+                                    <span>+91 98765 43210</span>
+                                </div>
+                            </a>
+                            <a href="mailto:support@travelexplore.com" class="help-option">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email Support</strong>
+                                    <span>support@travelexplore.com</span>
+                                </div>
+                            </a>
+                            <a href="#" class="help-option" id="live-chat">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <strong>Live Chat</strong>
+                                    <span>Chat with our experts</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Booking Confirmed!</h3>
+            <p>Your booking has been successfully submitted. You will receive a confirmation email shortly.</p>
+            <div class="booking-reference">
+                <strong>Booking Reference: <span id="booking-ref"></span></strong>
+            </div>
+            <div class="success-actions">
+                <button class="btn btn-primary" onclick="window.location.href='index.html'">Go to Home</button>
+                <button class="btn btn-outline" onclick="window.print()">Print Confirmation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-plane"></i> TravelExplore</h3>
+                    <p>Your trusted partner for unforgettable travel experiences. Discover the world with our expertly crafted tour packages.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Mumbai, India</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@travelexplore.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelExplore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
+    <style>
+        .booking-progress {
+            padding: 2rem 0;
+            background: #f8f9fa;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 100%;
+            width: 2rem;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        .step.active:not(:last-child)::after,
+        .step.completed:not(:last-child)::after {
+            background: #2c5aa0;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 2;
+            position: relative;
+        }
+
+        .step.active .step-number,
+        .step.completed .step-number {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .step-title {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .step.active .step-title,
+        .step.completed .step-title {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+
+        .booking-section {
+            padding: 5rem 0;
+        }
+
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .booking-form-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .form-step h3 {
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5aa0;
+        }
+
+        .package-selection {
+            margin-bottom: 2rem;
+        }
+
+        .selected-package {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .selected-package.show {
+            display: block;
+        }
+
+        .package-options {
+            margin-bottom: 2rem;
+        }
+
+        .package-options label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .package-options select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .travelers-count {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .count-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .count-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .count-btn {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #2c5aa0;
+            background: white;
+            color: #2c5aa0;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .count-btn:hover {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .count-controls input {
+            width: 60px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
+
+        .additional-services {
+            margin-bottom: 2rem;
+        }
+
+        .additional-services h4 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .service-option {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-option:hover {
+            background: #e9ecef;
+        }
+
+        .service-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2c5aa0;
+            border-radius: 4px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .service-option input[type="checkbox"]:checked + .checkmark {
+            background: #2c5aa0;
+        }
+
+        .service-option input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 600;
+        }
+
+        .payment-methods,
+        .payment-gateway {
+            margin-bottom: 2rem;
+        }
+
+        .payment-methods h4,
+        .payment-gateway h4 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .payment-options,
+        .gateway-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .payment-option,
+        .gateway-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover,
+        .gateway-option:hover {
+            border-color: #2c5aa0;
+        }
+
+        .payment-option input[type="radio"],
+        .gateway-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-mark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #2c5aa0;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option input[type="radio"]:checked + .radio-mark,
+        .gateway-option input[type="radio"]:checked + .radio-mark {
+            background: #2c5aa0;
+        }
+
+        .payment-option input[type="radio"]:checked + .radio-mark::after,
+        .gateway-option input[type="radio"]:checked + .radio-mark::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .payment-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .payment-info span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .gateway-options {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .gateway-option {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+        }
+
+        .gateway-option i {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+        }
+
+        .terms-conditions {
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-option .checkmark {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #2c5aa0;
+            border-radius: 3px;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkmark {
+            background: #2c5aa0;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-navigation .btn {
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+        }
+
+        .booking-summary {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .summary-card h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .summary-content {
+            margin-bottom: 2rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            color: #666;
+        }
+
+        .summary-item:first-child {
+            padding-top: 0;
+        }
+
+        .summary-divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 1rem 0;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .payment-amount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #2c5aa0;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .summary-features {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #666;
+        }
+
+        .feature i {
+            color: #2c5aa0;
+            width: 20px;
+        }
+
+        .help-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-section h4 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .help-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .help-option {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .help-option:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .help-option i {
+            color: #2c5aa0;
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .help-option div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .help-option strong {
+            color: #333;
+        }
+
+        .help-option span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Success Modal */
+        .success-content {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .success-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .success-content p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .booking-reference {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .booking-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .booking-summary {
+                position: static;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .progress-steps {
+                gap: 1rem;
+            }
+
+            .step:not(:last-child)::after {
+                width: 1rem;
+            }
+
+            .step-title {
+                font-size: 0.8rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gateway-options {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form-container,
+            .summary-card,
+            .help-section {
+                padding: 1.5rem;
+            }
+
+            .form-navigation {
+                flex-direction: column;
+            }
+
+            .success-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .progress-steps {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+            }
+
+            .booking-form-container,
+            .summary-card,
+            .help-section {
+                padding: 1rem;
+            }
+
+            .count-controls {
+                gap: 0.5rem;
+            }
+
+            .count-btn {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</body>
+</html>

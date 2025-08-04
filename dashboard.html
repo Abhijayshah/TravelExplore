@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TravelExplore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-plane"></i> TravelExplore</h2>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="destinations.html" class="nav-link">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="packages.html" class="nav-link">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item user-menu">
+                        <div class="user-dropdown">
+                            <button class="user-btn" id="user-btn">
+                                <img src="images/profile-placeholder.svg" alt="User" class="user-avatar">
+                                <span class="user-name" id="user-name">Demo User</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <a href="dashboard.html" class="dropdown-item active">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Dashboard
+                                </a>
+                                <a href="#" class="dropdown-item" onclick="showProfileModal()">
+                                    <i class="fas fa-user"></i>
+                                    Profile
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section" data-aos="fade-up">
+                <div class="welcome-content">
+                    <div class="welcome-text">
+                        <h1>Welcome back, <span id="dashboard-user-name">Demo User</span>!</h1>
+                        <p>Manage your bookings, explore new destinations, and plan your next adventure.</p>
+                    </div>
+                    <div class="welcome-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-trips">5</h3>
+                                <p>Total Trips</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="upcoming-trips">2</h3>
+                                <p>Upcoming</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="loyalty-points">1,250</h3>
+                                <p>Loyalty Points</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Navigation -->
+            <section class="dashboard-nav" data-aos="fade-up" data-aos-delay="100">
+                <div class="nav-tabs">
+                    <button class="tab-btn active" data-tab="bookings">
+                        <i class="fas fa-suitcase"></i>
+                        My Bookings
+                    </button>
+                    <button class="tab-btn" data-tab="wishlist">
+                        <i class="fas fa-heart"></i>
+                        Wishlist
+                    </button>
+                    <button class="tab-btn" data-tab="reviews">
+                        <i class="fas fa-star"></i>
+                        Reviews
+                    </button>
+                    <button class="tab-btn" data-tab="rewards">
+                        <i class="fas fa-gift"></i>
+                        Rewards
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tab Content -->
+            <section class="tab-content">
+                <!-- Bookings Tab -->
+                <div class="tab-pane active" id="bookings-tab" data-aos="fade-up" data-aos-delay="200">
+                    <div class="section-header">
+                        <h2>My Bookings</h2>
+                        <div class="booking-filters">
+                            <select id="booking-filter">
+                                <option value="all">All Bookings</option>
+                                <option value="upcoming">Upcoming</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bookings-grid" id="bookings-grid">
+                        <!-- Booking cards will be dynamically generated -->
+                    </div>
+
+                    <div class="empty-state" id="bookings-empty" style="display: none;">
+                        <div class="empty-icon">
+                            <i class="fas fa-suitcase"></i>
+                        </div>
+                        <h3>No bookings found</h3>
+                        <p>Start planning your next adventure!</p>
+                        <a href="packages.html" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Browse Packages
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wishlist Tab -->
+                <div class="tab-pane" id="wishlist-tab" data-aos="fade-up" data-aos-delay="200">
+                    <div class="section-header">
+                        <h2>My Wishlist</h2>
+                        <p>Save your favorite destinations and packages for later</p>
+                    </div>
+
+                    <div class="wishlist-grid" id="wishlist-grid">
+                        <!-- Wishlist items will be dynamically generated -->
+                    </div>
+
+                    <div class="empty-state" id="wishlist-empty">
+                        <div class="empty-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Add destinations and packages you'd like to visit</p>
+                        <a href="destinations.html" class="btn btn-primary">
+                            <i class="fas fa-map-marked-alt"></i>
+                            Explore Destinations
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-pane" id="reviews-tab" data-aos="fade-up" data-aos-delay="200">
+                    <div class="section-header">
+                        <h2>My Reviews</h2>
+                        <p>Share your travel experiences with other travelers</p>
+                    </div>
+
+                    <div class="reviews-grid" id="reviews-grid">
+                        <!-- Reviews will be dynamically generated -->
+                    </div>
+
+                    <div class="empty-state" id="reviews-empty">
+                        <div class="empty-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>No reviews yet</h3>
+                        <p>Complete a trip to leave your first review</p>
+                    </div>
+                </div>
+
+                <!-- Rewards Tab -->
+                <div class="tab-pane" id="rewards-tab" data-aos="fade-up" data-aos-delay="200">
+                    <div class="section-header">
+                        <h2>Rewards & Loyalty</h2>
+                        <p>Earn points with every booking and unlock exclusive benefits</p>
+                    </div>
+
+                    <div class="rewards-content">
+                        <div class="loyalty-status">
+                            <div class="loyalty-card">
+                                <div class="loyalty-header">
+                                    <h3>Travel Explorer</h3>
+                                    <div class="loyalty-badge">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Silver</span>
+                                    </div>
+                                </div>
+                                <div class="loyalty-points">
+                                    <div class="points-display">
+                                        <span class="points-number">1,250</span>
+                                        <span class="points-label">Points</span>
+                                    </div>
+                                    <div class="points-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 62.5%"></div>
+                                        </div>
+                                        <span class="progress-text">750 points to Gold status</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rewards-grid">
+                            <div class="reward-card available">
+                                <div class="reward-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <div class="reward-info">
+                                    <h4>10% Off Next Booking</h4>
+                                    <p>Valid for bookings over ₹25,000</p>
+                                    <span class="reward-cost">500 points</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm" onclick="redeemReward('discount10')">
+                                    Redeem
+                                </button>
+                            </div>
+
+                            <div class="reward-card available">
+                                <div class="reward-icon">
+                                    <i class="fas fa-plane"></i>
+                                </div>
+                                <div class="reward-info">
+                                    <h4>Free Airport Transfer</h4>
+                                    <p>One-way airport pickup or drop</p>
+                                    <span class="reward-cost">800 points</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm" onclick="redeemReward('transfer')">
+                                    Redeem
+                                </button>
+                            </div>
+
+                            <div class="reward-card unavailable">
+                                <div class="reward-icon">
+                                    <i class="fas fa-hotel"></i>
+                                </div>
+                                <div class="reward-info">
+                                    <h4>Free Hotel Upgrade</h4>
+                                    <p>Subject to availability</p>
+                                    <span class="reward-cost">1,500 points</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm" disabled>
+                                    Need 250 more
+                                </button>
+                            </div>
+
+                            <div class="reward-card unavailable">
+                                <div class="reward-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <div class="reward-info">
+                                    <h4>Free Weekend Getaway</h4>
+                                    <p>2D/1N package for 2 people</p>
+                                    <span class="reward-cost">3,000 points</span>
+                                </div>
+                                <button class="btn btn-outline btn-sm" disabled>
+                                    Need 1,750 more
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="points-history">
+                            <h3>Points History</h3>
+                            <div class="history-list">
+                                <div class="history-item">
+                                    <div class="history-info">
+                                        <span class="history-action">Booking Completed</span>
+                                        <span class="history-date">Dec 15, 2024</span>
+                                    </div>
+                                    <span class="history-points earned">+250 points</span>
+                                </div>
+                                <div class="history-item">
+                                    <div class="history-info">
+                                        <span class="history-action">Review Submitted</span>
+                                        <span class="history-date">Dec 10, 2024</span>
+                                    </div>
+                                    <span class="history-points earned">+50 points</span>
+                                </div>
+                                <div class="history-item">
+                                    <div class="history-info">
+                                        <span class="history-action">Referral Bonus</span>
+                                        <span class="history-date">Nov 28, 2024</span>
+                                    </div>
+                                    <span class="history-points earned">+500 points</span>
+                                </div>
+                                <div class="history-item">
+                                    <div class="history-info">
+                                        <span class="history-action">Discount Redeemed</span>
+                                        <span class="history-date">Nov 20, 2024</span>
+                                    </div>
+                                    <span class="history-points redeemed">-300 points</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions" data-aos="fade-up" data-aos-delay="300">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="packages.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>Browse Packages</h3>
+                            <p>Discover new destinations</p>
+                        </div>
+                    </a>
+
+                    <a href="booking.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>New Booking</h3>
+                            <p>Plan your next trip</p>
+                        </div>
+                    </a>
+
+                    <a href="contact.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>Customer Support</h3>
+                            <p>Get help with your booking</p>
+                        </div>
+                    </a>
+
+                    <button class="action-card" onclick="showProfileModal()">
+                        <div class="action-icon">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>Edit Profile</h3>
+                            <p>Update your information</p>
+                        </div>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-content profile-modal-content">
+            <div class="modal-header">
+                <h3>Edit Profile</h3>
+                <button class="modal-close" onclick="closeModal('profile-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="profile-form" id="profile-form">
+                <div class="profile-avatar-section">
+                    <div class="avatar-container">
+                        <img src="images/profile-placeholder.svg" alt="Profile" class="profile-avatar" id="profile-avatar">
+                        <button type="button" class="avatar-upload-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-first-name">First Name</label>
+                        <input type="text" id="profile-first-name" name="firstName" value="Demo">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-last-name">Last Name</label>
+                        <input type="text" id="profile-last-name" name="lastName" value="User">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-email">Email Address</label>
+                    <input type="email" id="profile-email" name="email" value="demo@user.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-phone">Phone Number</label>
+                        <input type="tel" id="profile-phone" name="phone" value="+91 98765 43210">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-dob">Date of Birth</label>
+                        <input type="date" id="profile-dob" name="dateOfBirth" value="1990-01-01">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-gender">Gender</label>
+                        <select id="profile-gender" name="gender">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-nationality">Nationality</label>
+                        <input type="text" id="profile-nationality" name="nationality" value="Indian">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-address">Address</label>
+                    <textarea id="profile-address" name="address" rows="3">123 Main Street, Mumbai, Maharashtra, India</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-preferences">Travel Preferences</label>
+                    <div class="preferences-grid">
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="adventure" checked>
+                            <span>Adventure</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="cultural">
+                            <span>Cultural</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="beach" checked>
+                            <span>Beach</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="mountain">
+                            <span>Mountain</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="wildlife">
+                            <span>Wildlife</span>
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="preferences" value="luxury" checked>
+                            <span>Luxury</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal('profile-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Details Modal -->
+    <div class="modal" id="booking-details-modal">
+        <div class="modal-content booking-modal-content">
+            <div class="modal-header">
+                <h3>Booking Details</h3>
+                <button class="modal-close" onclick="closeModal('booking-details-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="booking-details-content" id="booking-details-content">
+                <!-- Booking details will be dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-plane"></i> TravelExplore</h3>
+                    <p>Your trusted partner for unforgettable travel experiences. Discover the world with our expertly crafted tour packages.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Mumbai, India</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@travelexplore.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelExplore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/aos.js"></script>
+    <script src="js/script.js"></script>
+
+    <style>
+        .dashboard-main {
+            padding-top: 100px;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+
+        .user-menu {
+            position: relative;
+        }
+
+        .user-dropdown {
+            position: relative;
+        }
+
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .user-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .user-dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item.active {
+            background: #f8f9fa;
+            color: #2c5aa0;
+        }
+
+        .dropdown-item i {
+            width: 16px;
+            text-align: center;
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 0.5rem 0;
+        }
+
+        .welcome-section {
+            background: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .welcome-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .welcome-text h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .welcome-text h1 span {
+            color: #2c5aa0;
+        }
+
+        .welcome-text p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .welcome-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .stat-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.2rem;
+            font-weight: 700;
+        }
+
+        .stat-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .dashboard-nav {
+            margin-bottom: 2rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: none;
+            color: #666;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #f8f9fa;
+            color: #2c5aa0;
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-header h2 {
+            color: #333;
+            margin: 0;
+        }
+
+        .section-header p {
+            color: #666;
+            margin: 0.5rem 0 0;
+            flex-basis: 100%;
+        }
+
+        .booking-filters select {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .bookings-grid,
+        .wishlist-grid,
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .booking-card,
+        .wishlist-card,
+        .review-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .booking-card:hover,
+        .wishlist-card:hover,
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .card-badge.upcoming {
+            background: #28a745;
+        }
+
+        .card-badge.completed {
+            background: #2c5aa0;
+        }
+
+        .card-badge.cancelled {
+            background: #dc3545;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-details {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card-details p {
+            margin: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-details i {
+            width: 16px;
+            color: #2c5aa0;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            margin-bottom: 2rem;
+        }
+
+        .rewards-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .loyalty-card {
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loyalty-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .loyalty-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .loyalty-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .loyalty-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .loyalty-points {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .points-display {
+            text-align: center;
+        }
+
+        .points-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .points-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .points-progress {
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .reward-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .reward-card.available {
+            border-color: #2c5aa0;
+        }
+
+        .reward-card.unavailable {
+            opacity: 0.6;
+        }
+
+        .reward-card:hover.available {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .reward-icon {
+            width: 60px;
+            height: 60px;
+            background: #2c5aa0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .reward-card.unavailable .reward-icon {
+            background: #ccc;
+        }
+
+        .reward-info h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .reward-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .reward-cost {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #2c5aa0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .points-history {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .points-history h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .history-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .history-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .history-action {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .history-date {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .history-points {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .history-points.earned {
+            color: #28a745;
+        }
+
+        .history-points.redeemed {
+            color: #dc3545;
+        }
+
+        .quick-actions {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .quick-actions h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .action-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            border-color: #2c5aa0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: #2c5aa0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .action-content h3 {
+            color: #333;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .action-content p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Profile Modal Styles */
+        .profile-modal-content {
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .profile-avatar-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .avatar-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2c5aa0;
+        }
+
+        .avatar-upload-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: #2c5aa0;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .avatar-upload-btn:hover {
+            background: #1e3d6f;
+        }
+
+        .preferences-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .preference-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .preference-option:hover {
+            border-color: #2c5aa0;
+        }
+
+        .preference-option input[type="checkbox"]:checked + span {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+
+        .preference-option input[type="checkbox"]:checked {
+            accent-color: #2c5aa0;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Booking Modal Styles */
+        .booking-modal-content {
+            max-width: 700px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .welcome-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .welcome-stats {
+                justify-content: center;
+            }
+
+            .nav-tabs {
+                overflow-x: auto;
+            }
+
+            .tab-btn {
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-main {
+                padding-top: 80px;
+            }
+
+            .welcome-section {
+                padding: 2rem 0;
+            }
+
+            .welcome-text h1 {
+                font-size: 2rem;
+            }
+
+            .welcome-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .tab-content {
+                padding: 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bookings-grid,
+            .wishlist-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .loyalty-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .preferences-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-section,
+            .tab-content,
+            .quick-actions {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                border-radius: 0;
+            }
+
+            .tab-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-btn i {
+                display: none;
+            }
+
+            .loyalty-card {
+                padding: 1.5rem;
+            }
+
+            .points-number {
+                font-size: 2.5rem;
+            }
+
+            .action-card {
+                padding: 1rem;
+            }
+
+            .action-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .preferences-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="desertSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E6F3FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rockGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#CD853F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="800" height="350" fill="url(#desertSky)"/>
+  
+  <!-- Distant mountains -->
+  <polygon points="0,250 150,180 300,200 450,160 600,190 750,170 800,180 800,350 0,350" fill="#696969" opacity="0.6"/>
+  
+  <!-- Main rocky mountains -->
+  <polygon points="0,300 200,200 400,250 600,180 800,220 800,350 0,350" fill="url(#rockGradient)"/>
+  
+  <!-- Snow peaks -->
+  <polygon points="180,210 200,200 220,210 200,205" fill="white"/>
+  <polygon points="580,190 600,180 620,190 600,185" fill="white"/>
+  
+  <!-- Desert ground -->
+  <rect x="0" y="350" width="800" height="250" fill="#DEB887"/>
+  
+  <!-- Sand dunes -->
+  <ellipse cx="200" cy="450" rx="100" ry="30" fill="#F4A460" opacity="0.7"/>
+  <ellipse cx="600" cy="480" rx="120" ry="25" fill="#F4A460" opacity="0.7"/>
+  
+  <!-- Sparse vegetation -->
+  <rect x="350" y="420" width="3" height="20" fill="#8B4513"/>
+  <ellipse cx="351" cy="415" rx="8" ry="5" fill="#228B22" opacity="0.8"/>
+  
+  <rect x="500" y="440" width="2" height="15" fill="#8B4513"/>
+  <ellipse cx="501" cy="437" rx="6" ry="4" fill="#228B22" opacity="0.8"/>
+  
+  <!-- Title -->
+  <text x="400" y="550" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#2c5aa0">Leh-Ladakh</text>
+</svg>

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "booking_001",
+    "userId": "user_001",
+    "packageId": "pkg_manali_001",
+    "packageName": "Manali Adventure Package",
+    "destination": "Manali, Himachal Pradesh",
+    "duration": "5 Days / 4 Nights",
+    "startDate": "2024-03-15",
+    "endDate": "2024-03-19",
+    "travelers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "totalAmount": 25000,
+    "paidAmount": 5000,
+    "remainingAmount": 20000,
+    "paymentStatus": "partial",
+    "bookingStatus": "confirmed",
+    "customerDetails": {
+      "name": "Demo User",
+      "email": "demo@user.com",
+      "phone": "+91 98765 43210",
+      "address": "123 Travel Street, Mumbai, Maharashtra, 400001"
+    },
+    "specialRequests": "Vegetarian meals preferred",
+    "additionalServices": [
+      "travel_insurance",
+      "airport_pickup"
+    ],
+    "bookingReference": "TRV2024001",
+    "createdAt": "2024-01-10T14:30:00Z",
+    "updatedAt": "2024-01-10T14:30:00Z"
+  },
+  {
+    "id": "booking_002",
+    "userId": "user_001",
+    "packageId": "pkg_goa_001",
+    "packageName": "Goa Beach Holiday",
+    "destination": "Goa",
+    "duration": "4 Days / 3 Nights",
+    "startDate": "2024-02-20",
+    "endDate": "2024-02-23",
+    "travelers": {
+      "adults": 2,
+      "children": 1,
+      "infants": 0
+    },
+    "totalAmount": 18000,
+    "paidAmount": 18000,
+    "remainingAmount": 0,
+    "paymentStatus": "paid",
+    "bookingStatus": "completed",
+    "customerDetails": {
+      "name": "Demo User",
+      "email": "demo@user.com",
+      "phone": "+91 98765 43210",
+      "address": "123 Travel Street, Mumbai, Maharashtra, 400001"
+    },
+    "specialRequests": "Sea view room preferred",
+    "additionalServices": [
+      "travel_insurance"
+    ],
+    "bookingReference": "TRV2024002",
+    "rating": 5,
+    "review": "Amazing experience! The beaches were beautiful and the hotel was excellent.",
+    "createdAt": "2024-01-05T09:15:00Z",
+    "updatedAt": "2024-02-25T16:45:00Z"
+  },
+  {
+    "id": "booking_003",
+    "userId": "user_001",
+    "packageId": "pkg_kerala_001",
+    "packageName": "Kerala Backwaters",
+    "destination": "Kerala",
+    "duration": "6 Days / 5 Nights",
+    "startDate": "2024-04-10",
+    "endDate": "2024-04-15",
+    "travelers": {
+      "adults": 2,
+      "children": 0,
+      "infants": 0
+    },
+    "totalAmount": 32000,
+    "paidAmount": 8000,
+    "remainingAmount": 24000,
+    "paymentStatus": "partial",
+    "bookingStatus": "confirmed",
+    "customerDetails": {
+      "name": "Demo User",
+      "email": "demo@user.com",
+      "phone": "+91 98765 43210",
+      "address": "123 Travel Street, Mumbai, Maharashtra, 400001"
+    },
+    "specialRequests": "Honeymoon package with romantic dinner",
+    "additionalServices": [
+      "travel_insurance",
+      "airport_pickup",
+      "spa_treatment"
+    ],
+    "bookingReference": "TRV2024003",
+    "createdAt": "2024-01-20T11:20:00Z",
+    "updatedAt": "2024-01-20T11:20:00Z"
+  }
+]

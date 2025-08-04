@@ -1,0 +1,45 @@
+[
+  {
+    "id": "contact_001",
+    "name": "John Smith",
+    "email": "john.smith@email.com",
+    "phone": "+91 98765 12345",
+    "subject": "Inquiry about Ladakh Package",
+    "message": "Hi, I'm interested in the Ladakh adventure package for 2 people in May. Could you please provide more details about the itinerary and pricing?",
+    "status": "pending",
+    "priority": "medium",
+    "assignedTo": null,
+    "createdAt": "2024-01-12T10:15:00Z",
+    "updatedAt": "2024-01-12T10:15:00Z"
+  },
+  {
+    "id": "contact_002",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@gmail.com",
+    "phone": "+91 87654 32109",
+    "subject": "Group Booking for Golden Triangle",
+    "message": "We are a group of 8 people planning to visit Delhi, Agra, and Jaipur in March. Please share group discount details and customization options.",
+    "status": "responded",
+    "priority": "high",
+    "assignedTo": "agent_001",
+    "response": "Thank you for your inquiry. We have sent detailed group package information to your email.",
+    "respondedAt": "2024-01-10T14:30:00Z",
+    "createdAt": "2024-01-09T16:45:00Z",
+    "updatedAt": "2024-01-10T14:30:00Z"
+  },
+  {
+    "id": "contact_003",
+    "name": "Rajesh Kumar",
+    "email": "rajesh.k@yahoo.com",
+    "phone": "+91 99887 76543",
+    "subject": "Feedback on Recent Goa Trip",
+    "message": "Just returned from the Goa beach holiday package. The experience was fantastic! Special thanks to the tour guide. Would love to book another trip soon.",
+    "status": "closed",
+    "priority": "low",
+    "assignedTo": "agent_002",
+    "response": "Thank you for the wonderful feedback! We're delighted you enjoyed your Goa trip. We'll be happy to help you plan your next adventure.",
+    "respondedAt": "2024-01-08T11:20:00Z",
+    "createdAt": "2024-01-07T09:30:00Z",
+    "updatedAt": "2024-01-08T11:20:00Z"
+  }
+]

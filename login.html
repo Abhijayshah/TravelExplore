@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup - TravelExplore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-plane"></i> TravelExplore</h2>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="destinations.html" class="nav-link">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="packages.html" class="nav-link">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link login-btn active">Login</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+        <div class="auth-background">
+            <div class="auth-overlay"></div>
+            <div class="auth-bg-image" style="background-image: url('images/travel-placeholder.svg')"></div>
+        </div>
+        
+        <div class="container">
+            <div class="auth-wrapper">
+                <!-- Auth Toggle -->
+                <div class="auth-toggle" data-aos="fade-up">
+                    <button class="toggle-btn active" data-form="login">Login</button>
+                    <button class="toggle-btn" data-form="signup">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form-container login-container active" data-aos="fade-up" data-aos-delay="100">
+                    <div class="auth-form">
+                        <div class="form-header">
+                            <h2>Welcome Back!</h2>
+                            <p>Sign in to your account to continue your journey</p>
+                        </div>
+                        
+                        <form class="login-form" id="login-form">
+                            <div class="form-group">
+                                <label for="login-email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+                                <span class="form-hint">Demo: demo@user.com</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="login-password">
+                                    <i class="fas fa-lock"></i>
+                                    Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                                    <button type="button" class="password-toggle" data-target="login-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <span class="form-hint">Demo: 123456</span>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="remember">
+                                    <span class="checkmark"></span>
+                                    Remember me
+                                </label>
+                                <a href="#" class="forgot-link">Forgot Password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary auth-btn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                Sign In
+                            </button>
+                            
+                            <div class="social-login">
+                                <p>Or continue with</p>
+                                <div class="social-buttons">
+                                    <button type="button" class="social-btn google-btn">
+                                        <i class="fab fa-google"></i>
+                                        Google
+                                    </button>
+                                    <button type="button" class="social-btn facebook-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                        Facebook
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="auth-form-container signup-container" data-aos="fade-up" data-aos-delay="100">
+                    <div class="auth-form">
+                        <div class="form-header">
+                            <h2>Create Account</h2>
+                            <p>Join us and start exploring amazing destinations</p>
+                        </div>
+                        
+                        <form class="signup-form" id="signup-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="signup-firstname">
+                                        <i class="fas fa-user"></i>
+                                        First Name
+                                    </label>
+                                    <input type="text" id="signup-firstname" name="firstName" placeholder="First name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="signup-lastname">
+                                        <i class="fas fa-user"></i>
+                                        Last Name
+                                    </label>
+                                    <input type="text" id="signup-lastname" name="lastName" placeholder="Last name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="signup-email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-phone">
+                                    <i class="fas fa-phone"></i>
+                                    Phone Number
+                                </label>
+                                <input type="tel" id="signup-phone" name="phone" placeholder="Enter your phone number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-password">
+                                    <i class="fas fa-lock"></i>
+                                    Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
+                                    <button type="button" class="password-toggle" data-target="signup-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength" id="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill"></div>
+                                    </div>
+                                    <span class="strength-text">Password strength</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-confirm-password">
+                                    <i class="fas fa-lock"></i>
+                                    Confirm Password
+                                </label>
+                                <div class="password-input">
+                                    <input type="password" id="signup-confirm-password" name="confirmPassword" placeholder="Confirm your password" required>
+                                    <button type="button" class="password-toggle" data-target="signup-confirm-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-dob">
+                                    <i class="fas fa-calendar"></i>
+                                    Date of Birth
+                                </label>
+                                <input type="date" id="signup-dob" name="dateOfBirth" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signup-gender">
+                                    <i class="fas fa-venus-mars"></i>
+                                    Gender
+                                </label>
+                                <select id="signup-gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" target="_blank">Terms & Conditions</a> and <a href="#" target="_blank">Privacy Policy</a>
+                                </label>
+                                
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for travel updates and exclusive offers
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary auth-btn">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </button>
+                            
+                            <div class="social-login">
+                                <p>Or sign up with</p>
+                                <div class="social-buttons">
+                                    <button type="button" class="social-btn google-btn">
+                                        <i class="fab fa-google"></i>
+                                        Google
+                                    </button>
+                                    <button type="button" class="social-btn facebook-btn">
+                                        <i class="fab fa-facebook-f"></i>
+                                        Facebook
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Auth Features -->
+                <div class="auth-features" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Secure & Safe</h4>
+                            <p>Your data is protected with industry-standard encryption</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Global Access</h4>
+                            <p>Access your account from anywhere in the world</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>24/7 Support</h4>
+                            <p>Get help whenever you need it with our round-the-clock support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="auth-success-modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 id="success-title">Welcome!</h3>
+            <p id="success-message">You have successfully logged in to your account.</p>
+            <div class="success-actions">
+                <button class="btn btn-primary" id="continue-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-plane"></i> TravelExplore</h3>
+                    <p>Your trusted partner for unforgettable travel experiences. Discover the world with our expertly crafted tour packages.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, Mumbai, India</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@travelexplore.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelExplore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
+    <style>
+        .auth-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+        }
+
+        .auth-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .auth-bg-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .auth-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(44, 90, 160, 0.7));
+            z-index: 1;
+        }
+
+        .auth-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .auth-toggle {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .toggle-btn.active {
+            background: white;
+            color: #2c5aa0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-form-container {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+
+        .auth-form-container.active {
+            display: block;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group label i {
+            color: #2c5aa0;
+            width: 16px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2c5aa0;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+
+        .form-hint {
+            font-size: 0.8rem;
+            color: #2c5aa0;
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #666;
+            cursor: pointer;
+            padding: 0.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #2c5aa0;
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+        }
+
+        .strength-bar {
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.3rem;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .strength-fill.weak {
+            width: 33%;
+            background: #dc3545;
+        }
+
+        .strength-fill.medium {
+            width: 66%;
+            background: #ffc107;
+        }
+
+        .strength-fill.strong {
+            width: 100%;
+            background: #28a745;
+        }
+
+        .strength-text {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkmark {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #2c5aa0;
+            border-radius: 3px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkmark {
+            background: #2c5aa0;
+        }
+
+        .checkbox-option input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .forgot-link {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-link:hover {
+            color: #1e3d6f;
+            text-decoration: underline;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .social-login {
+            text-align: center;
+        }
+
+        .social-login p {
+            color: #666;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .social-login p::before,
+        .social-login p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .social-login p::before {
+            left: 0;
+        }
+
+        .social-login p::after {
+            right: 0;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .google-btn {
+            color: #db4437;
+            border-color: #db4437;
+        }
+
+        .google-btn:hover {
+            background: #db4437;
+            color: white;
+        }
+
+        .facebook-btn {
+            color: #4267B2;
+            border-color: #4267B2;
+        }
+
+        .facebook-btn:hover {
+            background: #4267B2;
+            color: white;
+        }
+
+        .auth-features {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .feature-content h4 {
+            color: white;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .feature-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Success Modal Styles */
+        .success-content {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .success-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .success-content p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .auth-section {
+                padding: 6rem 0 2rem;
+            }
+
+            .auth-wrapper {
+                margin: 0 1rem;
+            }
+
+            .auth-form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .social-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .success-content {
+                padding: 2rem 1rem;
+            }
+
+            .success-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .success-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-form-container {
+                padding: 1.5rem 1rem;
+            }
+
+            .toggle-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 0.7rem 0.8rem;
+            }
+
+            .auth-btn {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+
+            .feature {
+                padding: 0.8rem;
+            }
+
+            .feature-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation for form switching */
+        .auth-form-container {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form validation styles */
+        .form-group input.error,
+        .form-group select.error {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+        }
+
+        .form-group input.success,
+        .form-group select.success {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</body>
+</html>

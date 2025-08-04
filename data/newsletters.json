@@ -1,0 +1,68 @@
+[
+  {
+    "id": "newsletter_001",
+    "email": "demo@user.com",
+    "name": "Demo User",
+    "status": "active",
+    "preferences": {
+      "frequency": "weekly",
+      "categories": ["destinations", "packages", "offers"]
+    },
+    "source": "website_footer",
+    "subscribedAt": "2023-01-15T08:00:00Z",
+    "lastEmailSent": "2024-01-10T10:00:00Z",
+    "emailsSent": 52,
+    "emailsOpened": 38,
+    "emailsClicked": 15
+  },
+  {
+    "id": "newsletter_002",
+    "email": "travel.lover@gmail.com",
+    "name": "Sarah Johnson",
+    "status": "active",
+    "preferences": {
+      "frequency": "monthly",
+      "categories": ["destinations", "tips"]
+    },
+    "source": "contact_page",
+    "subscribedAt": "2024-01-05T14:30:00Z",
+    "lastEmailSent": "2024-01-10T10:00:00Z",
+    "emailsSent": 2,
+    "emailsOpened": 2,
+    "emailsClicked": 1
+  },
+  {
+    "id": "newsletter_003",
+    "email": "adventure.seeker@yahoo.com",
+    "name": "Mike Chen",
+    "status": "active",
+    "preferences": {
+      "frequency": "weekly",
+      "categories": ["adventure", "packages", "offers"]
+    },
+    "source": "booking_page",
+    "subscribedAt": "2024-01-08T09:15:00Z",
+    "lastEmailSent": "2024-01-10T10:00:00Z",
+    "emailsSent": 1,
+    "emailsOpened": 1,
+    "emailsClicked": 0
+  },
+  {
+    "id": "newsletter_004",
+    "email": "family.trips@hotmail.com",
+    "name": "Lisa Anderson",
+    "status": "unsubscribed",
+    "preferences": {
+      "frequency": "monthly",
+      "categories": ["family", "destinations"]
+    },
+    "source": "website_footer",
+    "subscribedAt": "2023-12-20T16:45:00Z",
+    "unsubscribedAt": "2024-01-05T12:30:00Z",
+    "lastEmailSent": "2024-01-01T10:00:00Z",
+    "emailsSent": 3,
+    "emailsOpened": 1,
+    "emailsClicked": 0,
+    "unsubscribeReason": "Too frequent emails"
+  }
+]

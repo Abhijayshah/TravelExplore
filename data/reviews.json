@@ -1,0 +1,153 @@
+[
+  {
+    "id": "review_001",
+    "userId": "user_001",
+    "userName": "Demo User",
+    "userEmail": "demo@user.com",
+    "packageId": "pkg_goa_001",
+    "packageName": "Goa Beach Holiday",
+    "bookingId": "booking_002",
+    "rating": 5,
+    "title": "Amazing Beach Experience!",
+    "review": "Had an absolutely wonderful time in Goa! The beaches were pristine, the hotel was excellent with great sea views, and the local cuisine was delicious. The tour guide was very knowledgeable and friendly. Highly recommend this package for anyone looking for a relaxing beach vacation.",
+    "pros": [
+      "Beautiful beaches",
+      "Excellent hotel",
+      "Great food",
+      "Friendly staff"
+    ],
+    "cons": [
+      "Could have more water sports options"
+    ],
+    "wouldRecommend": true,
+    "travelDate": "2024-02-20",
+    "verified": true,
+    "helpful": 12,
+    "notHelpful": 1,
+    "status": "approved",
+    "createdAt": "2024-02-25T16:45:00Z",
+    "updatedAt": "2024-02-25T16:45:00Z"
+  },
+  {
+    "id": "review_002",
+    "userId": "user_002",
+    "userName": "Priya Sharma",
+    "userEmail": "priya.sharma@gmail.com",
+    "packageId": "pkg_manali_001",
+    "packageName": "Manali Adventure Package",
+    "bookingId": "booking_004",
+    "rating": 4,
+    "title": "Great Mountain Adventure",
+    "review": "Manali was breathtaking! The mountain views were spectacular and the adventure activities were thrilling. The accommodation was comfortable and the food was good. Only minor issue was the weather was a bit unpredictable, but that's nature for you!",
+    "pros": [
+      "Stunning mountain views",
+      "Exciting adventure activities",
+      "Comfortable accommodation",
+      "Well-organized itinerary"
+    ],
+    "cons": [
+      "Unpredictable weather",
+      "Long travel time from Delhi"
+    ],
+    "wouldRecommend": true,
+    "travelDate": "2024-01-15",
+    "verified": true,
+    "helpful": 8,
+    "notHelpful": 0,
+    "status": "approved",
+    "createdAt": "2024-01-22T14:30:00Z",
+    "updatedAt": "2024-01-22T14:30:00Z"
+  },
+  {
+    "id": "review_003",
+    "userId": "user_003",
+    "userName": "Rajesh Kumar",
+    "userEmail": "rajesh.k@yahoo.com",
+    "packageId": "pkg_kerala_001",
+    "packageName": "Kerala Backwaters",
+    "bookingId": "booking_005",
+    "rating": 5,
+    "title": "Perfect Honeymoon Destination",
+    "review": "Kerala backwaters exceeded our expectations! The houseboat experience was magical, floating through the serene waters surrounded by lush greenery. The Ayurvedic spa treatments were rejuvenating, and the traditional Kerala cuisine was a delightful experience. Perfect for couples!",
+    "pros": [
+      "Romantic houseboat experience",
+      "Beautiful backwaters",
+      "Excellent spa treatments",
+      "Authentic Kerala cuisine",
+      "Peaceful and relaxing"
+    ],
+    "cons": [
+      "Mosquitoes in the evening"
+    ],
+    "wouldRecommend": true,
+    "travelDate": "2023-12-10",
+    "verified": true,
+    "helpful": 15,
+    "notHelpful": 0,
+    "status": "approved",
+    "createdAt": "2023-12-18T10:20:00Z",
+    "updatedAt": "2023-12-18T10:20:00Z"
+  },
+  {
+    "id": "review_004",
+    "userId": "user_004",
+    "userName": "Amit Patel",
+    "userEmail": "amit.patel@gmail.com",
+    "packageId": "pkg_ladakh_001",
+    "packageName": "Ladakh High Altitude Adventure",
+    "bookingId": "booking_006",
+    "rating": 4,
+    "title": "Challenging but Rewarding",
+    "review": "Ladakh is truly the land of high passes! The landscapes are otherworldly and the monasteries are peaceful. The high altitude was challenging initially, but the acclimatization schedule was well planned. The local guides were excellent and very knowledgeable about the region.",
+    "pros": [
+      "Stunning landscapes",
+      "Well-planned itinerary",
+      "Knowledgeable guides",
+      "Unique cultural experience",
+      "Good acclimatization schedule"
+    ],
+    "cons": [
+      "High altitude sickness initially",
+      "Limited food options",
+      "Basic accommodation in some places"
+    ],
+    "wouldRecommend": true,
+    "travelDate": "2023-09-05",
+    "verified": true,
+    "helpful": 10,
+    "notHelpful": 2,
+    "status": "approved",
+    "createdAt": "2023-09-15T18:45:00Z",
+    "updatedAt": "2023-09-15T18:45:00Z"
+  },
+  {
+    "id": "review_005",
+    "userId": "user_005",
+    "userName": "Sneha Gupta",
+    "userEmail": "sneha.gupta@yahoo.com",
+    "packageId": "pkg_jaipur_001",
+    "packageName": "Jaipur Heritage Tour",
+    "bookingId": "booking_007",
+    "rating": 5,
+    "title": "Royal Rajasthan Experience",
+    "review": "Jaipur is truly the Pink City! The palaces and forts are magnificent, and the rich history comes alive through the excellent guided tours. The traditional Rajasthani dinner with folk dance was a highlight. Shopping in the local markets was fun too!",
+    "pros": [
+      "Magnificent palaces and forts",
+      "Excellent guided tours",
+      "Rich cultural experience",
+      "Great shopping opportunities",
+      "Traditional entertainment"
+    ],
+    "cons": [
+      "Very crowded during peak season"
+    ],
+    "wouldRecommend": true,
+    "travelDate": "2023-11-20",
+    "verified": true,
+    "helpful": 9,
+    "notHelpful": 0,
+    "status": "approved",
+    "createdAt": "2023-11-28T12:15:00Z",
+    "updatedAt": "2023-11-28T12:15:00Z"
+  }
+]

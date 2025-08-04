@@ -1,0 +1,23 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="profileBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="200" fill="url(#profileBg)"/>
+  
+  <!-- Person silhouette -->
+  <g transform="translate(200, 200)">
+    <!-- Head -->
+    <circle cx="0" cy="-60" r="50" fill="#2c5aa0" opacity="0.7"/>
+    
+    <!-- Body -->
+    <ellipse cx="0" cy="40" rx="70" ry="90" fill="#2c5aa0" opacity="0.7"/>
+  </g>
+  
+  <!-- Border -->
+  <circle cx="200" cy="200" r="195" fill="none" stroke="#2c5aa0" stroke-width="10" opacity="0.3"/>
+</svg>
