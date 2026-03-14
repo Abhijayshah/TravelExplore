@@ -1,61 +1,56 @@
 const mongoose = require('mongoose');
 
+// Cache the connection
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
 const connectDB = async () => {
-  try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/travelexplore';
-    
-    const options = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      maxPoolSize: 10, // Maintain up to 10 socket connections
-      serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
-      socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
-      family: 4 // Use IPv4, skip trying IPv6
-    };
+  const mongoURI = process.env.MONGODB_URI;
 
-    const conn = await mongoose.connect(mongoURI, options);
-
-    console.log(`🍃 MongoDB Connected: ${conn.connection.host}`);
-    console.log(`📊 Database: ${conn.connection.name}`);
-    
-    // Handle connection events
-    mongoose.connection.on('error', (err) => {
-      console.error('❌ MongoDB connection error:', err);
-    });
-
-    mongoose.connection.on('disconnected', () => {
-      console.log('🔌 MongoDB disconnected');
-    });
-
-    mongoose.connection.on('reconnected', () => {
-      console.log('🔄 MongoDB reconnected');
-    });
-
-    // Graceful shutdown
-    process.on('SIGINT', async () => {
-      try {
-        await mongoose.connection.close();
-        console.log('🛑 MongoDB connection closed through app termination');
-        process.exit(0);
-      } catch (err) {
-        console.error('Error during MongoDB shutdown:', err);
-        process.exit(1);
-      }
-    });
-
-  } catch (error) {
-    console.error('❌ MongoDB connection failed:', error.message);
-    
-    // In production, log and return (avoid process.exit on serverless)
+  if (!mongoURI) {
     if (process.env.NODE_ENV === 'production') {
-      console.error('⚠️  Running in production mode without active database connection');
+      console.error('❌ MONGODB_URI is not defined in environment variables');
       return null;
     }
-    
-    // In development, continue without database
-    console.log('⚠️  Running in development mode without database');
-    return null;
+    console.log('⚠️  Using local MongoDB fallback for development');
   }
+
+  const uri = mongoURI || 'mongodb://localhost:27017/travelexplore';
+
+  if (cached.conn) {
+    return cached.conn;
+  }
+
+  if (!cached.promise) {
+    const options = {
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+      family: 4
+    };
+
+    console.log('🔄 Connecting to MongoDB...');
+    cached.promise = mongoose.connect(uri, options).then((mongoose) => {
+      console.log(`🍃 MongoDB Connected: ${mongoose.connection.host}`);
+      return mongoose;
+    }).catch(err => {
+      console.error('❌ MongoDB connection failed:', err.message);
+      cached.promise = null;
+      throw err;
+    });
+  }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (e) {
+    cached.promise = null;
+    throw e;
+  }
+
+  return cached.conn;
 };
 
 // Health check function

@@ -28,20 +28,26 @@ const { generateToken, verifyToken, requireAdmin } = require('./middleware/auth'
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Connect to MongoDB
-connectDB();
+// Simple health check before any middleware
+app.get('/api/ping', (req, res) => res.send('pong'));
+
+console.log('🚀 App initializing in', process.env.NODE_ENV || 'development', 'mode');
+
+// Database Connection Middleware
+app.use(async (req, res, next) => {
+    try {
+        console.log(`📡 Request: ${req.method} ${req.url}`);
+        await connectDB();
+        next();
+    } catch (err) {
+        console.error('❌ Database connection middleware error:', err.message);
+        next();
+    }
+});
 
 // Security middleware
 app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-      imgSrc: ["'self'", "data:", "https:"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"]
-    }
-  }
+  contentSecurityPolicy: false
 }));
 
 // CORS configuration
@@ -53,31 +59,39 @@ const corsOptions = {
 
 // Middleware
 app.use(cors(corsOptions));
-app.use(morgan('combined'));
+if (process.env.NODE_ENV !== 'production') {
+    app.use(morgan('combined'));
+}
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Session configuration
-app.use(session({
+const sessionOptions = {
     secret: process.env.SESSION_SECRET || 'your-secret-key-change-this-in-production',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/travelexplore',
-        ttl: 24 * 60 * 60, // 1 day
-        autoRemove: 'native'
-    }),
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // Set to true in production with HTTPS
-        maxAge: 24 * 60 * 60 * 1000 // 24 hours
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 24 * 60 * 60 * 1000
     }
-}));
+};
+
+// Add MongoStore only if MONGODB_URI is available
+if (process.env.MONGODB_URI) {
+    sessionOptions.store = MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI,
+        ttl: 24 * 60 * 60,
+        autoRemove: 'native'
+    });
+}
+
+app.use(session(sessionOptions));
 
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(__dirname));
+app.use(express.static(process.cwd()));
 
 // Helper function to generate unique IDs
 function generateId() {
@@ -99,35 +113,35 @@ app.get('/api/health', (req, res) => {
 
 // Serve main pages
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'index.html'));
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'about.html'));
+    res.sendFile(path.join(process.cwd(), 'about.html'));
 });
 
 app.get('/destinations', (req, res) => {
-    res.sendFile(path.join(__dirname, 'destinations.html'));
+    res.sendFile(path.join(process.cwd(), 'destinations.html'));
 });
 
 app.get('/packages', (req, res) => {
-    res.sendFile(path.join(__dirname, 'packages.html'));
+    res.sendFile(path.join(process.cwd(), 'packages.html'));
 });
 
 app.get('/booking', (req, res) => {
-    res.sendFile(path.join(__dirname, 'booking.html'));
+    res.sendFile(path.join(process.cwd(), 'booking.html'));
 });
 
 app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, 'contact.html'));
+    res.sendFile(path.join(process.cwd(), 'contact.html'));
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(process.cwd(), 'login.html'));
 });
 
 app.get('/dashboard', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dashboard.html'));
+    res.sendFile(path.join(process.cwd(), 'dashboard.html'));
 });
 
 // API Routes
