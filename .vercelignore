@@ -1,0 +1,41 @@
+# Ignore local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore data backups (use MongoDB instead)
+data/
+*.json
+!package.json
+!package-lock.json
+!vercel.json
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore documentation not needed for deployment
+README.md
+DEPLOYMENT.md
+GOOGLE_OAUTH_SETUP.md
+VERCEL_DEPLOYMENT.md
+details-for-developer.md
+screenshots/
+
+# Ignore Docker files
+Dockerfile
+docker-compose.yml
+mongo-init.js
+
+# Ignore test files
+test-auth.js
+healthcheck.js
+
+# Ignore version control
+.git/
+.gitignore
+
+# Ignore node_modules
+node_modules/

@@ -98,8 +98,6 @@ const bookingSchema = new mongoose.Schema({
 // Indexes for better performance
 bookingSchema.index({ userId: 1 });
 bookingSchema.index({ status: 1 });
-bookingSchema.index({ 'travelDetails.startDate': 1 });
-bookingSchema.index({ bookingReference: 1 });
 bookingSchema.index({ createdAt: -1 });
 
 // Generate booking reference before saving

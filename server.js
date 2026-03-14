@@ -8,6 +8,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const passport = require('./config/passport');
 const bcrypt = require('bcryptjs');
 
@@ -61,6 +62,11 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'your-secret-key-change-this-in-production',
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/travelexplore',
+        ttl: 24 * 60 * 60, // 1 day
+        autoRemove: 'native'
+    }),
     cookie: {
         secure: process.env.NODE_ENV === 'production', // Set to true in production with HTTPS
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
