@@ -520,49 +520,46 @@ app.post('/api/auth/register', async (req, res) => {
 });
 
 // Get user bookings
-app.get('/api/user/:userId/bookings', (req, res) => {
+app.get('/api/user/:userId/bookings', async (req, res) => {
     try {
         const { userId } = req.params;
-        const userBookings = bookings.filter(booking => booking.userId === userId || booking.email === 'demo@user.com');
         
-        // Add some demo bookings for demo user
+        // Find bookings in MongoDB
+        let userBookings = await Booking.find({ 
+            $or: [
+                { userId: userId },
+                { 'customerInfo.email': 'demo@user.com' }
+            ]
+        }).sort({ createdAt: -1 });
+        
+        // Add some demo bookings for demo user if none exist
         if (userId === 'demo-user-123' && userBookings.length === 0) {
             const demoBookings = [
                 {
-                    id: 'booking-1',
+                    _id: 'booking-1',
                     packageName: 'Manali Adventure Package',
                     destination: 'Manali',
-                    startDate: '2024-12-25',
-                    endDate: '2024-12-30',
-                    travelers: 2,
-                    totalAmount: 45000,
+                    travelDetails: {
+                        startDate: '2024-12-25',
+                        endDate: '2024-12-30',
+                        travelers: 2
+                    },
+                    pricing: { totalPrice: 45000 },
                     status: 'confirmed',
-                    paymentStatus: 'paid',
-                    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                    paymentStatus: 'paid'
                 },
                 {
-                    id: 'booking-2',
+                    _id: 'booking-2',
                     packageName: 'Goa Beach Holiday',
                     destination: 'Goa',
-                    startDate: '2025-01-15',
-                    endDate: '2025-01-20',
-                    travelers: 4,
-                    totalAmount: 80000,
+                    travelDetails: {
+                        startDate: '2025-01-15',
+                        endDate: '2025-01-20',
+                        travelers: 4
+                    },
+                    pricing: { totalPrice: 80000 },
                     status: 'upcoming',
-                    paymentStatus: 'paid',
-                    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-                },
-                {
-                    id: 'booking-3',
-                    packageName: 'Kerala Backwaters',
-                    destination: 'Kerala',
-                    startDate: '2024-11-10',
-                    endDate: '2024-11-15',
-                    travelers: 2,
-                    totalAmount: 35000,
-                    status: 'completed',
-                    paymentStatus: 'paid',
-                    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+                    paymentStatus: 'paid'
                 }
             ];
             return res.json({ success: true, bookings: demoBookings });
@@ -579,33 +576,24 @@ app.get('/api/user/:userId/bookings', (req, res) => {
 });
 
 // Get user reviews
-app.get('/api/user/:userId/reviews', (req, res) => {
+app.get('/api/user/:userId/reviews', async (req, res) => {
     try {
         const { userId } = req.params;
-        const userReviews = reviews.filter(review => review.userId === userId);
         
-        // Add demo reviews for demo user
+        // Find reviews in MongoDB
+        let userReviews = await Review.find({ userId: userId }).sort({ createdAt: -1 });
+        
+        // Add demo reviews for demo user if none exist
         if (userId === 'demo-user-123' && userReviews.length === 0) {
             const demoReviews = [
                 {
-                    id: 'review-1',
+                    _id: 'review-1',
                     packageName: 'Kerala Backwaters',
                     destination: 'Kerala',
-                    rating: 5,
+                    rating: { overall: 5 },
                     title: 'Amazing Experience!',
-                    comment: 'The Kerala backwaters tour was absolutely magical. The houseboat experience was unforgettable and the local cuisine was delicious.',
-                    date: '2024-11-20',
-                    image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-                },
-                {
-                    id: 'review-2',
-                    packageName: 'Shimla Hill Station',
-                    destination: 'Shimla',
-                    rating: 4,
-                    title: 'Great Mountain Getaway',
-                    comment: 'Beautiful mountain views and pleasant weather. The hotel was comfortable and the local sightseeing was well organized.',
-                    date: '2024-10-05',
-                    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+                    content: 'The Kerala backwaters tour was absolutely magical.',
+                    createdAt: '2024-11-20'
                 }
             ];
             return res.json({ success: true, reviews: demoReviews });
@@ -622,24 +610,28 @@ app.get('/api/user/:userId/reviews', (req, res) => {
 });
 
 // Submit review
-app.post('/api/reviews', (req, res) => {
+app.post('/api/reviews', async (req, res) => {
     try {
-        const reviewData = {
-            id: generateId(),
-            ...req.body,
-            timestamp: new Date().toISOString(),
-            status: 'published'
-        };
+        const { userId, packageName, destination, rating, title, content, travelDate, travelType } = req.body;
         
-        reviews.push(reviewData);
-        saveData('reviews.json', reviews);
+        const review = new Review({
+            userId,
+            packageName,
+            destination,
+            rating: typeof rating === 'number' ? { overall: rating } : rating,
+            title,
+            content,
+            travelDate: travelDate || new Date(),
+            travelType: travelType || 'solo',
+            status: 'approved' // Auto-approve for now
+        });
         
-        console.log('New review submission:', reviewData);
+        await review.save();
         
         res.json({
             success: true,
             message: 'Thank you for your review! It has been published.',
-            review: reviewData
+            review
         });
     } catch (error) {
         console.error('Review submission error:', error);
@@ -750,16 +742,29 @@ app.post('/api/callback', (req, res) => {
 });
 
 // Admin routes (basic)
-app.get('/api/admin/stats', (req, res) => {
+app.get('/api/admin/stats', async (req, res) => {
     try {
+        const [totalBookings, totalContacts, totalNewsletters, totalUsers, totalReviews] = await Promise.all([
+            Booking.countDocuments(),
+            Contact.countDocuments(),
+            Newsletter.countDocuments(),
+            User.countDocuments(),
+            Review.countDocuments()
+        ]);
+
+        const [recentBookings, recentContacts] = await Promise.all([
+            Booking.find().sort({ createdAt: -1 }).limit(5),
+            Contact.find().sort({ createdAt: -1 }).limit(5)
+        ]);
+        
         const stats = {
-            totalBookings: bookings.length,
-            totalContacts: contacts.length,
-            totalNewsletterSubscribers: newsletters.length,
-            totalUsers: users.length,
-            totalReviews: reviews.length,
-            recentBookings: bookings.slice(-5),
-            recentContacts: contacts.slice(-5)
+            totalBookings,
+            totalContacts,
+            totalNewsletterSubscribers: totalNewsletters,
+            totalUsers,
+            totalReviews,
+            recentBookings,
+            recentContacts
         };
         
         res.json({ success: true, stats });
@@ -789,30 +794,33 @@ app.use((req, res) => {
     });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 TravelExplore Server running on http://localhost:${PORT}`);
-    console.log('📁 Serving static files from current directory');
-    console.log('💾 Data will be stored in ./data/ directory');
-    console.log('🔐 Demo login: demo@user.com / 123456');
-    console.log('\n📋 Available endpoints:');
-    console.log('   GET  /                     - Home page');
-    console.log('   GET  /about               - About page');
-    console.log('   GET  /destinations        - Destinations page');
-    console.log('   GET  /packages            - Packages page');
-    console.log('   GET  /booking             - Booking page');
-    console.log('   GET  /contact             - Contact page');
-    console.log('   GET  /login               - Login page');
-    console.log('   GET  /dashboard           - Dashboard page');
-    console.log('   POST /api/contact         - Contact form submission');
-    console.log('   POST /api/newsletter      - Newsletter subscription');
-    console.log('   POST /api/booking         - Booking submission');
-    console.log('   POST /api/auth/login      - User login');
-    console.log('   POST /api/auth/register   - User registration');
-    console.log('   GET  /api/packages        - Get packages');
-    console.log('   GET  /api/packages/search - Search packages');
-    console.log('   POST /api/callback        - Callback request');
-    console.log('   GET  /api/admin/stats     - Admin statistics');
-});
-
+// Export app for Vercel deployment
 module.exports = app;
+
+// Start server only when run directly
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`🚀 TravelExplore Server running on http://localhost:${PORT}`);
+        console.log('📁 Serving static files from current directory');
+        console.log('💾 Data will be stored in ./data/ directory');
+        console.log('🔐 Demo login: demo@user.com / 123456');
+        console.log('\n📋 Available endpoints:');
+        console.log('   GET  /                     - Home page');
+        console.log('   GET  /about               - About page');
+        console.log('   GET  /destinations        - Destinations page');
+        console.log('   GET  /packages            - Packages page');
+        console.log('   GET  /booking             - Booking page');
+        console.log('   GET  /contact             - Contact page');
+        console.log('   GET  /login               - Login page');
+        console.log('   GET  /dashboard           - Dashboard page');
+        console.log('   POST /api/contact         - Contact form submission');
+        console.log('   POST /api/newsletter      - Newsletter subscription');
+        console.log('   POST /api/booking         - Booking submission');
+        console.log('   POST /api/auth/login      - User login');
+        console.log('   POST /api/auth/register   - User registration');
+        console.log('   GET  /api/packages        - Get packages');
+        console.log('   GET  /api/packages/search - Search packages');
+        console.log('   POST /api/callback        - Callback request');
+        console.log('   GET  /api/admin/stats     - Admin statistics');
+    });
+}
