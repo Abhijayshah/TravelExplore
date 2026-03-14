@@ -46,14 +46,15 @@ const connectDB = async () => {
   } catch (error) {
     console.error('❌ MongoDB connection failed:', error.message);
     
-    // In development, continue without database
-    if (process.env.NODE_ENV === 'development') {
-      console.log('⚠️  Running in development mode without database');
+    // In production, log and return (avoid process.exit on serverless)
+    if (process.env.NODE_ENV === 'production') {
+      console.error('⚠️  Running in production mode without active database connection');
       return null;
     }
     
-    // In production, exit the process
-    process.exit(1);
+    // In development, continue without database
+    console.log('⚠️  Running in development mode without database');
+    return null;
   }
 };
 

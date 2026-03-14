@@ -1,4 +1,6 @@
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -11,12 +13,6 @@ const bcrypt = require('bcryptjs');
 
 // Database connection
 const { connectDB, checkDBHealth } = require('./config/database');
-
-// MongoDB connection
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/travelexplore';
-mongoose.connect(mongoUri)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('MongoDB connection error:', err));
 
 // Models
 const User = require('./models/User');
@@ -75,7 +71,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static('.'));
+app.use(express.static(__dirname));
 
 // Helper function to generate unique IDs
 function generateId() {
